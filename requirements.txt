@@ -1,0 +1,11 @@
+
+
+langgraph
+langchain-core
+langchain-community
+langchain-openai
+openai
+youtube-transcript-api
+google-api-python-client
+python-dotenv
+streamlit
