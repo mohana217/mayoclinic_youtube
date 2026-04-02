@@ -2,9 +2,10 @@ from app.services.llm_client import get_llm
 import os
 
 
-llm = get_llm()
+
 
 def sentiment_node(state):
+    llm = get_llm()
     results = []
 
     for c in state["chunks"]:

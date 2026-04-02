@@ -1,8 +1,9 @@
 import streamlit as st
 from main import run   # your existing pipeline entry
 import re
-
 import os
+
+
 
 st.sidebar.title("🔐 Configuration")
 st.sidebar.info("Your API key is not stored and is used only for this session.")
@@ -48,6 +49,14 @@ if st.button("Analyze Videos"):
 
             urls = video_links.strip().split("\n")
             videos = [{"video_id": extract_video_id(url)} for url in urls]
+
+            import os
+
+            if not user_api_key:
+                st.error("Please enter your OpenAI API key")
+                st.stop()
+
+            os.environ["OPENAI_API_KEY"] = user_api_key
 
             # 👇 Call your existing pipeline WITHOUT modifying it
             result = run(videos_override=videos)

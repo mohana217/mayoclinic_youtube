@@ -1,7 +1,6 @@
 
 
 langgraph
-langchain-core
 langchain-community
 langchain-openai
 openai
@@ -9,3 +8,4 @@ youtube-transcript-api
 google-api-python-client
 python-dotenv
 streamlit
+langchain-core==0.1.x

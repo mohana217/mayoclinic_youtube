@@ -2,7 +2,7 @@ from app.services.llm_client import get_llm
 import json
 import re
 
-llm = get_llm()
+
 
 
 def clean_json_output(text):
@@ -12,6 +12,7 @@ def clean_json_output(text):
 
 
 def aggregator_node(state):
+    llm = get_llm()
 
     # Step 1: sentiment counts
     positive = 0
