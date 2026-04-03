@@ -1,6 +1,8 @@
 from app.services.llm_client import get_llm
 import json
 import re
+import os
+print("[DEBUG] API KEY PRESENT:", bool(os.getenv("OPENAI_API_KEY")))
 
 
 

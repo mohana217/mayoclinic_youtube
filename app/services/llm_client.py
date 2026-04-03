@@ -1,9 +1,18 @@
 from langchain_openai import ChatOpenAI
 from app.config.settings import OPENAI_API_KEY, MODEL_NAME
 
+import os
+from langchain_openai import ChatOpenAI
+
 def get_llm():
+    api_key = os.getenv("OPENAI_API_KEY")
+
+    if not api_key:
+        raise ValueError("OPENAI_API_KEY is missing")
+
     return ChatOpenAI(
-        model=MODEL_NAME,
+        model="gpt-4o-mini",   # safer default
         temperature=0,
-        openai_api_key=OPENAI_API_KEY
+        api_key=api_key
     )
+    
