@@ -11,7 +11,7 @@ def get_llm():
         raise ValueError("OPENAI_API_KEY is missing")
 
     return ChatOpenAI(
-        model="gpt-4o-mini",   # safer default
+        model="gpt-4o-mini",   
         temperature=0,
         api_key=api_key
     )

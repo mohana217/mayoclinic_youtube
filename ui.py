@@ -1,5 +1,4 @@
 import streamlit as st
-from main import run   
 import re
 import os
 
@@ -24,6 +23,9 @@ video_links = st.text_area(
     height=150
 )
 
+def get_run():
+    from main import run
+    return run
 
 def extract_video_id(url):
     if "v=" in url:
@@ -59,6 +61,7 @@ if st.button("Analyze Videos"):
             os.environ["OPENAI_API_KEY"] = user_api_key
 
             # 👇 Call your existing pipeline WITHOUT modifying it
+            run = get_run()
             result = run(videos_override=videos)
 
             report = result["report"]
